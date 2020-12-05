@@ -9,7 +9,7 @@ import {compose} from 'redux';
 
 const nav = (props) => {
   return(
-    <Navbar className="darkblue topbar" variant="light" expand="lg">
+    <Navbar className="darkblue topbar raleway" variant="light" expand="lg">
       <Navbar.Brand><Link className='home' to='/home'><img className="logoep" src={logo} height='50em' alt='logo'/></Link></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
