@@ -1,2 +1,2 @@
 # secretSanta
-DukeHack's project
+HackDuke Project
