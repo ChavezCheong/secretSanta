@@ -6,9 +6,13 @@
     --babyblue: #A8D4FF;
   }
 
-  .cinzel {
-    font-family: 'Cinzel Decorative';
-  }
+.cinzel {
+  font-family: 'Cinzel Decorative';
+}
+
+.raleway {
+  font-family: 'Raleway';
+}
 
 .sndpage {
   margin-left: 5em;

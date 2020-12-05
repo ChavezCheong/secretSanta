@@ -13,7 +13,8 @@ class ShelterRegister extends Component {
     //store user account info from text inputs
     this.state = {
       shelterName: '',
-      shelterLocation: '',
+      city: '',
+      state: '',
       email: '',
       password: '',
       passwordConfirm: '',
@@ -31,7 +32,8 @@ class ShelterRegister extends Component {
     const profile = {
       shelterName: this.state.shelterName,
       email: this.state.email,
-      shelterLocation: this.state.shelterLocation,
+      city: this.state.city,
+      state: this.state.state,
     }
 
     try {
@@ -43,14 +45,12 @@ class ShelterRegister extends Component {
   };
 
   registerCheck = () => {
-    if ((this.state.house !== "House Affiliation*")
-        && (this.state.password === this.state.passwordConfirm)
-        && (this.state.gradyear !== "Graduation Year*")
-        && this.state.house
-        && this.state.gradyear
-        && this.state.email.trim()
-        && this.state.firstName.trim()
-        && this.state.lastName.trim()) {
+    if ((this.state.password === this.state.passwordConfirm)
+      && this.state.shelterName.trim()
+      && this.state.city.trim()
+      && this.state.state.trim()
+      && this.state.email.trim()
+      && this.state.password.trim()) {
       this.register();
     }
   }
@@ -62,9 +62,9 @@ class ShelterRegister extends Component {
 
 
   render() {
-    if (this.props.isLoggedIn) {
-      return <Redirect to="/dash" />
-    }
+    // if (this.props.isLoggedIn) {
+    //   return <Redirect to="/dash" />
+    // }
 
     //passwords do not match error message
     if ((this.state.password !== this.state.passwordConfirm) && (this.state.passconfirm !== "Passwords do not match.")) {
@@ -75,32 +75,38 @@ class ShelterRegister extends Component {
 
     var disabled = !this.state.email.trim()
     || !this.state.shelterName.trim()
+    || !this.state.state.trim()
+    || !this.state.city.trim()
     || !this.state.password.trim()
     || !this.state.passwordConfirm.trim()
     || this.state.password !== this.state.passwordConfirm;
 
     return(
-      <div className="register cinzel">
+      <div className="register raleway">
         <div className="area" >
           <div className="contentr">
 
-              <div className='title'>
+              <div className='title cinzel'>
               Secret Santa
               </div>
+              <p style={{color: 'white'}}>Register your shelter to start receiving holiday donations!</p>
 
-              <div style={{color: 'red', fontWeight: 'bold', marginBottom: '1em'}}>{this.state.error}</div>
-              <div style={{color: 'red', fontWeight: 'bold', marginBottom: '1em'}}>{this.state.passconfirm}</div>
+              <div style={{color: 'white', marginBottom: '1em'}}>{this.state.error}</div>
+              <div style={{color: 'white', marginBottom: '1em'}}>{this.state.passconfirm}</div>
 
               <div className="form">
                 <Form>
                   <Form.Group>
+                      <Form.Control name="email" type="email" placeholder="Email*" onChange={this.handleChange} required />
+                  </Form.Group>
+                  <Form.Group>
                       <Form.Control name="shelterName" type="text" placeholder="Shelter Name*" onChange={this.handleChange} required />
                   </Form.Group>
                   <Form.Group>
-                      <Form.Control name="location" type="text" placeholder="Location*" onChange={this.handleChange} required />
+                      <Form.Control name="city" type="text" placeholder="City*" onChange={this.handleChange} required />
                   </Form.Group>
                   <Form.Group>
-                      <Form.Control name="email" type="email" placeholder="Email*" onChange={this.handleChange} required />
+                      <Form.Control name="state" type="text" placeholder="State*" onChange={this.handleChange} required />
                   </Form.Group>
                   <Form.Group>
                       <Form.Control name="password" type="password" placeholder="Enter Password*" onChange={this.handleChange} required />
@@ -114,7 +120,7 @@ class ShelterRegister extends Component {
                 </Form>
               </div>
               <br/>
-              <Link className="to-login" to="/login">Have an Account? Login!</Link>
+              <Link className="to-login" to="/login">Already Registered? Login!</Link>
           </div>
         </div>
       </div>
