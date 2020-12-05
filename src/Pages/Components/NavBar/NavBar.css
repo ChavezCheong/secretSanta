@@ -1,0 +1,15 @@
+.darkblue {
+  background-color: var(--dark);
+}
+
+.topbar {
+  height: 5em;
+  font-family: 'Raleway';
+  border-bottom: 2px solid black;
+}
+
+.navlink {
+  color: black;
+  margin-right: 0.8em;
+  font-size: 1.1em;
+}
