@@ -71,6 +71,9 @@ class ShelterLogin extends Component {
               <div style={{color: 'red', fontWeight: 'bold', marginBottom: '1em'}}>{this.state.error}</div>
               <div className="form">
                 <Form>
+                  
+                </Form>
+                <Form>
                   <Form.Group>
                       <Form.Control name="email" type="email" placeholder="Email*" onChange={this.handleChange} required />
                   </Form.Group>
