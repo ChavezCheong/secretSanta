@@ -1,0 +1,23 @@
+.notSelectedBar {
+  height: 50px;
+  width: 50%;
+  background-color: var(--ssgray);
+  display: inline-block;
+  text-align: center;
+}
+
+.selectedBar {
+  background-color: var(--babyblue);
+}
+
+.navText {
+  font-family: var(--decorFont);
+  color: white;
+  font-size: 30px;
+}
+
+.navText:hover {
+  font-family: var(--decorFont);
+  color: white;
+  font-size: 30px;
+}
