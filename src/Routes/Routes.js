@@ -10,7 +10,7 @@ import Homepage from '../Pages/Homepage/Homepage';
 import Payments from '../Pages/Payments/Payments';
 import PaymentResult from '../Pages/PaymentResult/PaymentResult';
 
-function Routes() {
+const Routes = () => {
   return (
     <>
       <Switch>
@@ -29,14 +29,14 @@ function Routes() {
         <Route exact path="/shelterAdminPayments">
           <ShelterAdminPayments/>
         </Route>
-        <Route>
-          <ErrorPage/>
-        </Route>
         <Route exact path="/Payments">
           <Payments/>
         </Route>
         <Route exact path="/PaymentResult">
           <PaymentResult/>
+        </Route>
+        <Route>
+          <ErrorPage/>
         </Route>
       </Switch>
     </>
