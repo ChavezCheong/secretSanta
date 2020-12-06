@@ -51,7 +51,7 @@ class Payments extends Component {
                     </NavBar>
                 </div>
                 <div className = "backbutton">
-                    <Button variant = "light" size = "lg"><Link className = "cinzel" to =  "/" style = {{color: "black"}}>Back</Link></Button>
+                    <Button variant = "light" size = "lg"><Link className = "cinzel" to =  "/ViewProfile" style = {{color: "black"}}>Back</Link></Button>
                 </div>
                 <br/>
                 <div className = "paymentitems cinzel">
