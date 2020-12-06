@@ -14,7 +14,7 @@ class Homepage extends Component {
     super(props);
     //store user account info from text inputs
     this.state = {
-
+      
     };
   }
 
