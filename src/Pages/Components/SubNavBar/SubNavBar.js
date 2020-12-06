@@ -13,7 +13,7 @@ class SubNavBar extends Component {
             <Link className="navText" to="/shelterAdminPeople">People</Link>
           </div>
           <div className="notSelectedBar">
-          <Link to="/shelterAdminPayments" className="navText">Payments & Financial Info</Link>
+          <Link to="/shelterAdminPayments" className="navText">Gifts Received</Link>
           </div>
         </div>
       )
@@ -24,7 +24,7 @@ class SubNavBar extends Component {
           <Link className="navText" to="/shelterAdminPeople">People</Link>
         </div>
         <div className="notSelectedBar selectedBar">
-          <Link to="/shelterAdminPayments" className="navText">Payments & Financial Info</Link>
+          <Link to="/shelterAdminPayments" className="navText">Gifts Received</Link>
         </div>
       </div>
     )
