@@ -1,9 +1,17 @@
 import React, {Component} from 'react';
+import NavBar from '../Components/NavBar/NavBar.js';
+import SubNavBar from '../Components/SubNavBar/SubNavBar.js';
 
 class ShelterAdminPeople extends Component {
   render() {
     return (
-      <p>People</p>
+      <>
+        <NavBar/>
+        <SubNavBar selected="people"/>
+        <p>
+          People
+        </p>
+      </>
     )
   }
 }

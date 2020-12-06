@@ -1,0 +1,16 @@
+.headingText {
+  font-size: 36px;
+  font-family: var(--decorFont);
+}
+
+.paymentInfo {
+  padding-left: 1em;
+  padding-right: 3em;
+}
+
+.toDo {
+  font-size: 20px;
+  height: 50px;
+  width: 100%;
+  background-color: var(--ssgray);
+}
