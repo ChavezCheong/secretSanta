@@ -11,13 +11,19 @@ import { Grid } from 'semantic-ui-react';
 
 class Payments extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
+      super(props);
+      this.state = {
+        name: ''
+      };
+    }
 
-        };
+    //change handler
+    handleChange = event => {
+      this.setState({ [event.target.name]: event.target.value, error: ''});
     }
 
     render () {
+
         return(
             <>
                 <div>
@@ -31,7 +37,7 @@ class Payments extends Component {
                 <div className = "paymentitems cinzel">
                     <h3>Purchasing for Jenn</h3>
                     <h4>Jacket ($50)</h4>
-                    <h4>Warm Pants ($50)</h4> 
+                    <h4>Warm Pants ($50)</h4>
                     <h3 className = "paymentinfo">Payment Info</h3>
                 </div>
                 <div className = "form ">
@@ -39,14 +45,14 @@ class Payments extends Component {
                     <Form.Row>
                         <Form.Label>Name</Form.Label>
                         <Form.Control name = "input" placeholder = "Cardowner's Name"></Form.Control>
-                    </Form.Row> 
+                    </Form.Row>
                     <Form.Row>
                         <Col xs = {7}>
                         <Form.Label>Credit Card Number</Form.Label>
                         <Form.Control name = "input" placeholder="1111-2222-3333-4444" />
                         </Col>
                         <Col>
-                        <Form.Label>Expiry Date</Form.Label> 
+                        <Form.Label>Expiry Date</Form.Label>
                         <Form.Control name = "date" placeholder="MM/DD/YYYY" />
                         </Col>
                         <Col>
