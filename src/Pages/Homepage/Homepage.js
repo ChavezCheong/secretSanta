@@ -28,7 +28,16 @@ class Homepage extends Component {
     return(
       <div className="homepage">
         <NavBar user='giver'/>
-        <ReceiverCard name='Jenn' bio='Hi I am Jenn'/>
+        <br/>
+        <h4 className='center raleway'>
+        Welcome to Secret Santa!
+        <br/>
+        Thank you for your generosity. Click on any person to view their holiday wishlist. </h4>
+        <hr/>
+        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
+        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
+        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
+        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
       </div>
     )
   }
