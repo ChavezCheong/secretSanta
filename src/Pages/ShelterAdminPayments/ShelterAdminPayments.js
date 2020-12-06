@@ -36,7 +36,8 @@ class ShelterAdminPayments extends Component {
       giftList = []
       Object.keys(gifts).map((donationId, donationindex) => {
         var donation = gifts[donationId];
-        giftList.push(<React.Fragment><GiftsReceived item={donation.itemname} person={donation.recipientname} message={donation.message} money={donation.cost}/><br/></React.Fragment>)
+        console.log(donation);
+        giftList.push(<React.Fragment><GiftsReceived item={donation.item} person={donation.recipientname} message={donation.message} money={donation.cost}/><br/></React.Fragment>)
       })
     }
 

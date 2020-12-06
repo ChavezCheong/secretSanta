@@ -22,6 +22,7 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 const firebaseConfig = {
   apiKey: "AIzaSyCslprrhYOua5Up3yXzAitqZms5_5yxHws",
   authDomain: "secret-santa-online.firebaseapp.com",
+  databaseURL: "https://secret-santa-online-default-rtdb.firebaseio.com",
   projectId: "secret-santa-online",
   storageBucket: "secret-santa-online.appspot.com",
   messagingSenderId: "715849096066",
