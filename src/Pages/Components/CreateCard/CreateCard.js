@@ -48,6 +48,7 @@ class CreateCard extends Component {
       updates[`/shelters/${this.props.uid}/${personId}`] = newPerson;
       this.props.firebase.update(`/`, updates, onComplete);
     }
+
   }
 
   render() {
