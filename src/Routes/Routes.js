@@ -9,6 +9,7 @@ import ErrorPage from '../Pages/ErrorPage/ErrorPage.js';
 import Homepage from '../Pages/Homepage/Homepage';
 import Payments from '../Pages/Payments/Payments';
 import PaymentResult from '../Pages/PaymentResult/PaymentResult';
+import ViewProfile from '../Pages/ViewProfile/ViewProfile.js';
 
 const Routes = (props) => {
   return (
@@ -34,6 +35,9 @@ const Routes = (props) => {
         </Route>
         <Route exact path="/PaymentResult">
           <PaymentResult/>
+        </Route>
+        <Route exact path="/ViewProfile">
+          <ViewProfile/>
         </Route>
         <Route>
           <ErrorPage/>
