@@ -4,7 +4,7 @@ import NavBar from '../Components/NavBar/NavBar';
 import ReceiverCard from '../Components/ReceiverCard/ReceiverCard';
 import { Form, Button } from 'react-bootstrap';
 import {Redirect, Link} from 'react-router-dom';
-import {firebaseConnect} from 'react-redux-firebase'
+import {firebaseConnect, isLoaded, isEmpty} from 'react-redux-firebase'
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import { Grid } from 'semantic-ui-react';
@@ -14,7 +14,7 @@ class Homepage extends Component {
     super(props);
     //store user account info from text inputs
     this.state = {
-      
+
     };
   }
 
@@ -25,7 +25,18 @@ class Homepage extends Component {
 
   render() {
 
-    return(
+    if (!isLoaded(this.props.shelters)) {
+      return <div>Loading...</div>
+    }
+
+    const shelters = this.props.shelters;
+    var peopleList = (<p className='raleway'>Everyone's holiday wishes are fulfilled!</p>)
+
+    if (shelters) {
+      
+    }
+
+    return (
       <div className="homepage">
         <NavBar user='giver'/>
         <br/>
@@ -44,9 +55,16 @@ class Homepage extends Component {
 }
 
 const mapStateToProps = state => {
-  return {isLoggedIn: state.firebase.auth.uid};
+  return {
+    isLoggedIn: state.firebase.auth.uid,
+    shelters: state.firebase.data['shelters'],
+  };
 };
 
 export default compose(
-  firebaseConnect(),
+  firebaseConnect( props => {
+    return [
+      {path: `/shelters`, storeAs: 'shelters'},
+    ];
+  }),
   connect(mapStateToProps))(Homepage);

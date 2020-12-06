@@ -3,10 +3,14 @@ import NavBar from '../Components/NavBar/NavBar.js';
 import SubNavBar from '../Components/SubNavBar/SubNavBar.js';
 import { Button } from 'react-bootstrap';
 import GiftsReceived from '../Components/GiftsReceived/GiftsReceived.js';
+import {Link, Redirect} from 'react-router-dom';
 import './ShelterAdminPayments.css';
 
 class ShelterAdminPayments extends Component {
   render() {
+    if (!this.props.uid) {
+      return <Redirect to="/"/>;
+    }
     return (
       <>
         <NavBar/>

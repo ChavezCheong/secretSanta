@@ -55,13 +55,12 @@ class ShelterLogin extends Component {
 
   render() {
     if (this.props.isLoggedIn) {
-      return <Redirect to="/dash"/ >;
+      return <Redirect to="/shelterAdminPeople"/ >;
     }
 
     var disabled = !this.state.email.trim() || !this.state.password.trim()
 
     return(
-
 
       <div className="login raleway">
         <div className="area" >

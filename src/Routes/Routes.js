@@ -25,7 +25,7 @@ const Routes = (props) => {
           <ShelterLogin/>
         </Route>
         <Route exact path="/shelterAdminPeople">
-          <ShelterAdminPeople uid={props.uid}/>
+          <ShelterAdminPeople uid={props.uid} shelterName={props.shelterName}/>
         </Route>
         <Route exact path="/shelterAdminPayments">
           <ShelterAdminPayments/>
