@@ -18,6 +18,7 @@ class ShelterLogin extends Component {
   }
 
   login = async () => {
+    console.log('login')
     const credentials = {
       email: this.state.email,
       password: this.state.password,
@@ -53,9 +54,9 @@ class ShelterLogin extends Component {
   }
 
   render() {
-    // if (this.props.isLoggedIn) {
-    //   return <Redirect to="/dash"/ >;
-    // }
+    if (this.props.isLoggedIn) {
+      return <Redirect to="/dash"/ >;
+    }
 
     var disabled = !this.state.email.trim() || !this.state.password.trim()
 

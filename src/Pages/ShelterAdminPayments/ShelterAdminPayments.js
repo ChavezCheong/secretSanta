@@ -1,9 +1,13 @@
 import React, {Component} from 'react';
+import NavBar from '../Components/NavBar/NavBar.js';
 
 class ShelterAdminPayments extends Component {
   render() {
     return (
-      <p>Payments</p>
+      <>
+        <NavBar/>
+        <p>Payments</p>
+      </>
     )
   }
 }
