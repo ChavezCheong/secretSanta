@@ -55,7 +55,7 @@ class ShelterLogin extends Component {
 
   render() {
     if (this.props.isLoggedIn) {
-      return <Redirect to="/shelterAdminPeople"/ >;
+      return <Redirect to="/dash"/ >;
     }
 
     var disabled = !this.state.email.trim() || !this.state.password.trim()

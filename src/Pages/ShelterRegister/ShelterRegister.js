@@ -62,9 +62,9 @@ class ShelterRegister extends Component {
 
 
   render() {
-    if (this.props.isLoggedIn) {
-      return <Redirect to="/shelterAdminPeople" />
-    }
+    // if (this.props.isLoggedIn) {
+    //   return <Redirect to="/dash" />
+    // }
 
     //passwords do not match error message
     if ((this.state.password !== this.state.passwordConfirm) && (this.state.passconfirm !== "Passwords do not match.")) {
