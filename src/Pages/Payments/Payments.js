@@ -32,7 +32,7 @@ class Payments extends Component {
                     <h3>Purchasing for Jenn</h3>
                     <h4>Jacket ($50)</h4>
                     <h4>Warm Pants ($50)</h4> 
-                    <h3>Payment Info</h3>
+                    <h3 className = "paymentinfo">Payment Info</h3>
                 </div>
                 <div className = "form ">
                     <Form>
@@ -54,11 +54,13 @@ class Payments extends Component {
                         <Form.Control name = "input" placeholder="XXX" />
                         </Col>
                     </Form.Row>
-                    <Form.Row xs = {12}>
+                    <Form.Row>
+                        <Col xs = {12}>
                         <Form.Group>
                                 <Form.Label>Your Message</Form.Label>
                                 <Form.Control name = "address" placeholder = "Merry Christmas and a Happy New Year..."></Form.Control>
                         </Form.Group>
+                        </Col>
                     </Form.Row>
                     </Form>
                     <Button size = "lg" variant = "dark"><Link className = "paybutton cinzel" style = {{color : "white"}} to = "/PaymentResult">Make your Donation</Link></Button>

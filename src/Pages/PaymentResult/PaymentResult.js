@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './PaymentResult.css';
-import { Card } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import {Redirect, Link} from 'react-router-dom';
 import {firebaseConnect} from 'react-redux-firebase'
 import {connect} from 'react-redux';
@@ -25,6 +25,9 @@ class PaymentResult extends Component {
                     <NavBar user = 'giver'/>
                 </div>
                 <br/>
+                <div className = "backbutton">
+                    <Button variant = "light" size = "lg"><Link className = "cinzel" to =  "/" style = {{color: "black"}}>Back</Link></Button>
+                </div>
                 <div className = "cutepenguin">
                     <img src = {penguin} height = '250em'/>
                 </div>

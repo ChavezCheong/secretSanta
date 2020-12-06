@@ -1,5 +1,6 @@
 .backbutton {
     padding-left: 1.5em;
+    color: darkgray;
 }
 
 .paymentitems {
@@ -10,8 +11,8 @@
     text-align: center;
 }
 
-.paytitle {
-    text-align: left;
+.payinfo {
+    background-color: darkgrey;
 }
 
 .form {
