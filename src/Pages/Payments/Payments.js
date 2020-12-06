@@ -4,10 +4,12 @@ import NavBar from '../Components/NavBar/NavBar';
 import ReceiverCard from '../Components/ReceiverCard/ReceiverCard';
 import { Form, Button, Row, Col, Card } from 'react-bootstrap';
 import {Redirect, Link} from 'react-router-dom';
-import {firebaseConnect} from 'react-redux-firebase'
+import {firebaseConnect, isLoaded, isEmpty} from 'react-redux-firebase'
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import { Grid } from 'semantic-ui-react';
+
+//should receive as props: shelter name, userid, name, iten, cost
 
 class Payments extends Component {
     constructor(props) {
@@ -28,10 +30,41 @@ class Payments extends Component {
     }
 
     makePayment = event => {
-      this.setState({complete: true})
+      //add to /donations with userid of person donated to, their name, the item name, cost, message
+      const shelterid = this.props.shelterId;
+      const recipientid = this.props.recipientId;
+      const recipientname = this.props.recipientName;
+      const itemname = this.props.itemName;
+      const cost = this.props.cost;
+      const message = this.state.message;
+
+      const donationId = this.props.firebase.push(`/donations/${shelterid}`).key;
+      const newDonation = {item: itemname, cost: cost, recipientname: recipientname, message: message};
+      const onComplete = () => {
+        console.log('Donation Received');
+        this.setState({complete: true});
+      }
+      const updates = {};
+      updates[`/donations/${shelterid}/${donationId}`] = newDonation;
+
+      //remove from Wishlist
+      var wishlist = this.props.wishlist;
+      var removeIndex = wishlist.map((item) => {
+        return item.name;
+      }).indexOf(itemname);
+      wishlist.splice(removeIndex, 1);
+      this.props.firebase.set(`/shelters/${shelterid}/${recipientid}/wishlist`, wishlist);
+
+      this.props.firebase.update(`/`, updates, onComplete);
     }
 
     render () {
+
+      // return loading screen if not yet loaded
+      if (!isLoaded(this.props.shelters)) {
+        return (<div>loading</div>)
+      }
+
 
       if (this.state.complete) {
         return (
@@ -95,4 +128,19 @@ class Payments extends Component {
     }
 }
 
-export default Payments;
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: state.firebase.auth.uid,
+    shelters: state.firebase.data['wishlist'],
+  };
+};
+
+export default compose(
+  firebaseConnect( props => {
+    const shelterId = props.shelterId;
+    const recipientId = props.recipientId;
+    return [
+      {path: `/shelters/${shelterId}/${recipientId}/wishlist`, storeAs: 'wishlist'},
+    ];
+  }),
+  connect(mapStateToProps))(Payments);
