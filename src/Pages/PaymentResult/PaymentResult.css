@@ -1,0 +1,16 @@
+.paymenttext {
+    text-align: center;
+}
+
+.paymentresult {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.cutepenguin {
+    display: flex;
+    justify-content: center;
+}

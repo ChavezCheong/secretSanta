@@ -8,8 +8,6 @@ import {firebaseConnect} from 'react-redux-firebase'
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import { Grid } from 'semantic-ui-react';
-import { PaymentInputsWrapper, usePaymentInputs } from 'react-payment-inputs';
-import images from 'react-payment-inputs/images';
 
 class Payments extends Component {
     constructor(props) {
@@ -18,13 +16,6 @@ class Payments extends Component {
 
         };
     }
-    const {
-        wrapperProps,
-        getCardImageProps,
-        getCardNumberProps,
-        getExpiryDateProps,
-        getCVCProps
-      } = usePaymentInputs();
 
     render () {
         return(
@@ -43,28 +34,38 @@ class Payments extends Component {
                     <h4>Warm Pants ($50)</h4> 
                     <h3>Payment Info</h3>
                 </div>
-                <div className = "form">
-                    
+                <div className = "form ">
                     <Form>
-                    <PaymentInputsWrapper {...wrapperProps}>
-                        <svg {...getCardImageProps({ images })} />
-                        <input {...getCardNumberProps()} />
-                        <input {...getExpiryDateProps()} />
-                        <input {...getCVCProps()} />
-                    </PaymentInputsWrapper>
-                        <h4 className = "paytitle">Your Message</h4>
+                    <Form.Row>
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control name = "input" placeholder = "Cardowner's Name"></Form.Control>
+                    </Form.Row> 
+                    <Form.Row>
+                        <Col xs = {7}>
+                        <Form.Label>Credit Card Number</Form.Label>
+                        <Form.Control name = "input" placeholder="1111-2222-3333-4444" />
+                        </Col>
+                        <Col>
+                        <Form.Label>Expiry Date</Form.Label> 
+                        <Form.Control name = "date" placeholder="MM/DD/YYYY" />
+                        </Col>
+                        <Col>
+                        <Form.Label>CVV</Form.Label>
+                        <Form.Control name = "input" placeholder="XXX" />
+                        </Col>
+                    </Form.Row>
+                    <Form.Row xs = {12}>
                         <Form.Group>
-                            <Form.Control name = "input" placeholder = "Merry Christmas and a Happy New Year..."></Form.Control>
+                                <Form.Label>Your Message</Form.Label>
+                                <Form.Control name = "address" placeholder = "Merry Christmas and a Happy New Year..."></Form.Control>
                         </Form.Group>
+                    </Form.Row>
                     </Form>
+                    <Button size = "lg" variant = "dark"><Link className = "paybutton cinzel" style = {{color : "white"}} to = "/PaymentResult">Make your Donation</Link></Button>
                 </div>
             </>
         )
     }
 }
-
-const mapStateToProps = state => {
-    return {isLoggedIn: state.firebase.auth.uid};
-  };
 
 export default Payments;

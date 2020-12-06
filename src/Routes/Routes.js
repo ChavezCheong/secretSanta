@@ -7,6 +7,7 @@ import ShelterAdminPeople from '../Pages/ShelterAdminPeople/ShelterAdminPeople';
 import ShelterAdminPayments from '../Pages/ShelterAdminPayments/ShelterAdminPayments';
 import Homepage from '../Pages/Homepage/Homepage';
 import Payments from '../Pages/Payments/Payments';
+import PaymentResult from '../Pages/PaymentResult/PaymentResult';
 
 function Routes() {
   return (
@@ -29,6 +30,9 @@ function Routes() {
         </Route>
         <Route exact path="/Payments">
           <Payments />
+        </Route>
+        <Route exact path = "/PaymentResult">
+          <PaymentResult />
         </Route>
       </Switch>
     </>
