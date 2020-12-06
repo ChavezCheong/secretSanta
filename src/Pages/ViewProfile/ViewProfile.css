@@ -1,0 +1,35 @@
+.alreadyBought {
+  text-decoration: line-through;
+}
+
+.textDiv {
+  font-family: var(--decorFont);
+  margin-left: 5%;
+  padding-top: 10px;
+}
+
+.backToProfile {
+  padding-left: 1em;
+  padding-top: 5em;
+}
+
+.profBio {
+  font-size: 24px;
+}
+
+.profPic {
+  margin-top: 1em;
+}
+
+.purchaseButton {
+  margin-top: 10px;
+  background-color: var(--babyblue);
+}
+
+.purchaseButton:focus {
+  background-color: var(--dark);
+}
+
+.purchaseButton:hover {
+  background-color: var(--dark);
+}

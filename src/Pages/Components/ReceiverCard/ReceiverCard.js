@@ -32,7 +32,7 @@ const receivercard = (props) => {
             <Card.Title>
               <p className='raleway'>{bio}</p>
             </Card.Title>
-            <Button variant="dark">View Profile Here</Button>
+            <Button variant="dark"><Link to="/ViewProfile" className='raleway profileLink'>View Profile Here</Link></Button>
           </Card.Body>
         </Col>
       </Row>
