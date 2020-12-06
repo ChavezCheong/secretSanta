@@ -7,6 +7,8 @@ import ShelterAdminPeople from '../Pages/ShelterAdminPeople/ShelterAdminPeople';
 import ShelterAdminPayments from '../Pages/ShelterAdminPayments/ShelterAdminPayments';
 import ErrorPage from '../Pages/ErrorPage/ErrorPage.js';
 import Homepage from '../Pages/Homepage/Homepage';
+import Payments from '../Pages/Payments/Payments';
+import PaymentResult from '../Pages/PaymentResult/PaymentResult';
 
 const Routes = () => {
   return (
@@ -27,12 +29,18 @@ const Routes = () => {
         <Route exact path="/shelterAdminPayments">
           <ShelterAdminPayments/>
         </Route>
+        <Route exact path="/Payments">
+          <Payments/>
+        </Route>
+        <Route exact path="/PaymentResult">
+          <PaymentResult/>
+        </Route>
         <Route>
           <ErrorPage/>
         </Route>
       </Switch>
     </>
-  )
+  );
 }
 
 export default Routes;

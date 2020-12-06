@@ -1,0 +1,28 @@
+.backbutton {
+    padding-left: 1.5em;
+    color: darkgray;
+}
+
+.paymentitems {
+    padding-left: 1.5em;
+}
+
+.paymentdetails {
+    text-align: center;
+}
+
+.payinfo {
+    background-color: darkgrey;
+}
+
+.form {
+    width: 87%;
+}
+
+.secondrow {
+    width: 87%;
+}
+
+.paybutton {
+    text-align: center;
+}
