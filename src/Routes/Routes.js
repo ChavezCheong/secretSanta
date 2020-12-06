@@ -8,7 +8,7 @@ import ShelterAdminPayments from '../Pages/ShelterAdminPayments/ShelterAdminPaym
 import ErrorPage from '../Pages/ErrorPage/ErrorPage.js';
 import Homepage from '../Pages/Homepage/Homepage';
 
-const Routes = () => {
+const Routes = (props) => {
   return (
     <>
       <Switch>
@@ -22,7 +22,7 @@ const Routes = () => {
           <ShelterLogin/>
         </Route>
         <Route exact path="/shelterAdminPeople">
-          <ShelterAdminPeople/>
+          <ShelterAdminPeople uid={props.uid}/>
         </Route>
         <Route exact path="/shelterAdminPayments">
           <ShelterAdminPayments/>
