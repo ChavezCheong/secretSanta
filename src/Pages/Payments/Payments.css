@@ -1,10 +1,11 @@
 .backbutton {
-    padding-left: 1.5em;
+  padding-top: 3em;
+    padding-left: 7.5em;
     color: darkgray;
 }
 
 .paymentitems {
-    padding-left: 1.5em;
+    padding-left: 7.5em;
 }
 
 .paymentdetails {
@@ -25,4 +26,9 @@
 
 .paybutton {
     text-align: center;
+}
+
+.itemTitle {
+  font-size: 36px;
+  font-weight: bold;
 }

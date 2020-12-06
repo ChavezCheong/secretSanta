@@ -35,10 +35,9 @@ class Payments extends Component {
                 </div>
                 <br/>
                 <div className = "paymentitems cinzel">
-                    <h3>Purchasing for Jenn</h3>
+                    <p className="itemTitle">Purchasing For Jenn</p>
                     <h4>Jacket ($50)</h4>
                     <h4>Warm Pants ($50)</h4>
-                    <h3 className = "paymentinfo">Payment Info</h3>
                 </div>
                 <div className = "form ">
                     <Form>
