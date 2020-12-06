@@ -13,7 +13,12 @@ class Payments extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        name: ''
+        name: '',
+        cardNumber: '',
+        expiry: '',
+        cvv: '',
+        message: '',
+        complete: false,
       };
     }
 
@@ -22,7 +27,22 @@ class Payments extends Component {
       this.setState({ [event.target.name]: event.target.value, error: ''});
     }
 
+    makePayment = event => {
+      this.setState({complete: true})
+    }
+
     render () {
+
+      if (this.state.complete) {
+        return (
+          <Redirect to='paymentResult'/>
+        )
+      }
+
+      const disabled = !this.state.name.trim()
+      || !this.state.cardNumber.trim()
+      || !this.state.expiry.trim()
+      || !this.state.cvv.trim()
 
         return(
             <>
@@ -43,32 +63,32 @@ class Payments extends Component {
                     <Form>
                     <Form.Row>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control name = "input" placeholder = "Cardowner's Name"></Form.Control>
+                        <Form.Control name="name" onChange={this.handleChange} required value={this.state.name} type='textarea' placeholder = "Cardowner's Name"></Form.Control>
                     </Form.Row>
                     <Form.Row>
                         <Col xs = {7}>
                         <Form.Label>Credit Card Number</Form.Label>
-                        <Form.Control name = "input" placeholder="1111-2222-3333-4444" />
+                        <Form.Control name="cardNumber" onChange={this.handleChange} required value={this.state.cardNumber} type='textarea' placeholder="1111-2222-3333-4444" />
                         </Col>
                         <Col>
                         <Form.Label>Expiry Date</Form.Label>
-                        <Form.Control name = "date" placeholder="MM/DD/YYYY" />
+                        <Form.Control name="expiry" onChange={this.handleChange} required value={this.state.expiry} type='textarea' placeholder="MM/DD/YYYY" />
                         </Col>
                         <Col>
                         <Form.Label>CVV</Form.Label>
-                        <Form.Control name = "input" placeholder="XXX" />
+                        <Form.Control name="cvv" onChange={this.handleChange} required value={this.state.cvv} type='textarea' placeholder="XXX" />
                         </Col>
                     </Form.Row>
                     <Form.Row>
                         <Col xs = {12}>
                         <Form.Group>
                                 <Form.Label>Your Message</Form.Label>
-                                <Form.Control name = "address" placeholder = "Merry Christmas and a Happy New Year..."></Form.Control>
+                                <Form.Control name="message" onChange={this.handleChange} value={this.state.message} type='textarea' placeholder = "Merry Christmas and a Happy New Year..."></Form.Control>
                         </Form.Group>
                         </Col>
                     </Form.Row>
                     </Form>
-                    <Button size = "lg" variant = "dark"><Link className = "paybutton cinzel" style = {{color : "white"}} to = "/PaymentResult">Make your Donation</Link></Button>
+                    <Button disabled={disabled} onClick={this.makePayment} size = "lg" variant = "dark" className='cinzel'>Make your Donation</Button>
                 </div>
             </>
         )

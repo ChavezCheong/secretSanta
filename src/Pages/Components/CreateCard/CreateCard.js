@@ -42,6 +42,7 @@ class CreateCard extends Component {
       const newPerson = {name: this.state.firstName, bio: this.state.bio, wishlist: this.state.wishlist};
       const onComplete = () => {
         console.log('New Person Added');
+        this.setState({firstName: '', bio: '', wishlist: []})
       }
       const updates = {};
       updates[`/shelters/${this.props.uid}/${personId}`] = newPerson;
