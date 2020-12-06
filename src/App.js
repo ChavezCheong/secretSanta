@@ -12,7 +12,7 @@ const App = props => {
   }
 
   return(
-    <Routes uid={props.uid}/>
+    <Routes uid={props.uid} shelterName={props.shelterName}/>
   );
 }
 
@@ -21,6 +21,7 @@ const mapStateToProps = (state) => {
     auth: state.firebase.auth,
     profile: state.firebase.profile,
     uid: state.firebase.auth.uid,
+    shelterName: state.firebase.profile.shelterName,
   };
 };
 

@@ -3,6 +3,7 @@ import NavBar from '../Components/NavBar/NavBar.js';
 import SubNavBar from '../Components/SubNavBar/SubNavBar.js';
 import CreateCard from '../Components/CreateCard/CreateCard.js';
 import ReceiverCard from '../Components/ReceiverCard/ReceiverCard.js';
+import {Link, Redirect} from 'react-router-dom';
 import {firebaseConnect, isLoaded, isEmpty} from 'react-redux-firebase'
 import {connect} from 'react-redux';
 import {compose} from 'redux';
@@ -15,9 +16,14 @@ class ShelterAdminPeople extends Component {
   }
 
   render() {
+
+    if (!this.props.uid) {
+      return <Redirect to="/"/>;
+    }
+
     // return loading screen if not yet loaded
     if (!isLoaded(this.props.profile) || !isLoaded(this.props.people)) {
-      return <div>loading</div>
+      return (<div>loading</div>)
     }
 
     var peopleList = (<p className='raleway center'>There are no people in your shelter yet! Add someone to make their holiday dreams come true!</p>)
@@ -36,11 +42,12 @@ class ShelterAdminPeople extends Component {
         <NavBar/>
         <SubNavBar selected="people"/>
         <br/>
-        <p className='cinzel articleheadings peopleTitle center'>Welcome back, {this.props.profile.shelterName}.</p>
-        <CreateCard shelterName={this.props.profile.shelterName} uid={this.props.uid}/>
+        <p className='cinzel articleheadings peopleTitle center'>Welcome back {this.props.shelterName}!</p>
+        <CreateCard shelterName={this.props.shelterName} uid={this.props.uid}/>
         <hr/>
         <p className='cinzel articleheadings peopleTitle' style={{paddingLeft: '1em'}}>People:</p>
         {peopleList}
+        <br/>
       </>
     )
   }
