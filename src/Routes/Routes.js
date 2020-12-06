@@ -5,6 +5,7 @@ import ShelterRegister from '../Pages/ShelterRegister/ShelterRegister'
 import ShelterLogin from '../Pages/ShelterLogin/ShelterLogin'
 import ShelterAdminPeople from '../Pages/ShelterAdminPeople/ShelterAdminPeople';
 import ShelterAdminPayments from '../Pages/ShelterAdminPayments/ShelterAdminPayments';
+import Homepage from '../Pages/Homepage/Homepage';
 
 
 const Routes = () => {
