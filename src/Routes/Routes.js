@@ -1,14 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import ShelterRegister from '../Pages/ShelterRegister/ShelterRegister'
-import ShelterLogin from '../Pages/ShelterLogin/ShelterLogin'
-import ShelterDash from '../Pages/ShelterDash/ShelterDash'
+import ShelterRegister from '../Pages/ShelterRegister/ShelterRegister';
+import ShelterLogin from '../Pages/ShelterLogin/ShelterLogin';
+import ShelterDash from '../Pages/ShelterDash/ShelterDash';
+
+import Homepage from '../Pages/Homepage/Homepage';
 
 const Routes = () => {
   return (
     <>
     <Switch>
+      <Route exact path = '/'>
+        <Homepage/>
+      </Route>
       <Route exact path="/register">
         <ShelterRegister/>
       </Route>
