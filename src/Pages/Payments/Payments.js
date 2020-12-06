@@ -12,17 +12,20 @@ import { Grid } from 'semantic-ui-react';
 class Payments extends Component {
     constructor(props) {
         super(props);
-        this.state;
+        this.state = {
+
+        };
     }
 
     render () {
         return(
             <>
                 <div>
-                    <NavBar>
-
+                    <NavBar user = 'giver'>
                     </NavBar>
                 </div>
+                <div>
+                 </div>   
             </>
         )
     }
