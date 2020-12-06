@@ -14,10 +14,13 @@ const receivercard = (props) => {
   const uid = props.uid;
   const name = props.name;
   const bio = props.bio;
+  const shelterid = props.shelterid;
 
   const arr = [pic0, pic1, pic2, pic3];
   const rand = Math.floor(Math.random() * Math.floor(4));
   const img = arr[rand];
+
+  //exact path="/ViewProfile/:recipientid"
 
   return (
     <Card bg='light' className='receivercard'>
@@ -32,7 +35,7 @@ const receivercard = (props) => {
             <Card.Title>
               <p className='raleway'>{bio}</p>
             </Card.Title>
-            <Button variant="dark"><Link to="/ViewProfile" className='raleway profileLink'>View Profile Here</Link></Button>
+            <Button variant="dark"><Link to={`/ViewProfile/${shelterid}/${uid}`} className='raleway profileLink'>View Profile Here</Link></Button>
           </Card.Body>
         </Col>
       </Row>

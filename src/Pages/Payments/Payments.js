@@ -3,13 +3,13 @@ import './Payments.css';
 import NavBar from '../Components/NavBar/NavBar';
 import ReceiverCard from '../Components/ReceiverCard/ReceiverCard';
 import { Form, Button, Row, Col, Card } from 'react-bootstrap';
-import {Redirect, Link} from 'react-router-dom';
+import {Redirect, Link, withRouter} from 'react-router-dom';
 import {firebaseConnect, isLoaded, isEmpty} from 'react-redux-firebase'
 import {connect} from 'react-redux';
 import {compose} from 'redux';
 import { Grid } from 'semantic-ui-react';
 
-//should receive as props: shelter name, userid, name, iten, cost
+//should receive as props: shelter name, userid, name, item, cost
 
 class Payments extends Component {
     constructor(props) {
@@ -31,15 +31,16 @@ class Payments extends Component {
 
     makePayment = event => {
       //add to /donations with userid of person donated to, their name, the item name, cost, message
-      const shelterid = this.props.shelterId;
-      const recipientid = this.props.recipientId;
-      const recipientname = this.props.recipientName;
-      const itemname = this.props.itemName;
-      const cost = this.props.cost;
+
+      const recipientid = this.props.match.params.recipientid;
+      const shelterid = this.props.match.params.shelterid;
+      const recipientname = this.props.match.params.recipientname;
+      const itemname = this.props.match.params.itemname;
+      const itemcost = this.props.match.params.itemcost;
       const message = this.state.message;
 
       const donationId = this.props.firebase.push(`/donations/${shelterid}`).key;
-      const newDonation = {item: itemname, cost: cost, recipientname: recipientname, message: message};
+      const newDonation = {item: itemname, cost: itemcost, recipientname: recipientname, message: message};
       const onComplete = () => {
         console.log('Donation Received');
         this.setState({complete: true});
@@ -61,14 +62,20 @@ class Payments extends Component {
     render () {
 
       // return loading screen if not yet loaded
-      if (!isLoaded(this.props.shelters)) {
+      if (!isLoaded(this.props.wishlist)) {
         return (<div>loading</div>)
       }
+
+      const recipientId = this.props.match.params.recipientid;
+      const shelterId = this.props.match.params.shelterid;
+      const recipientName = this.props.match.params.recipientname;
+      const itemName = this.props.match.params.itemname;
+      const itemCost = this.props.match.params.itemcost;
 
 
       if (this.state.complete) {
         return (
-          <Redirect to='paymentResult'/>
+          <Redirect to='/paymentResult'/>
         )
       }
 
@@ -88,11 +95,11 @@ class Payments extends Component {
                 </div>
                 <br/>
                 <div className = "paymentitems cinzel">
-                    <p className="itemTitle">Purchasing For Jenn</p>
-                    <h4>Jacket ($50)</h4>
-                    <h4>Warm Pants ($50)</h4>
+                    <p className="itemTitle">{recipientName}</p>
+                    <h4>{itemName} (${itemCost})</h4>
+                    <br/>
                 </div>
-                <div className = "form ">
+                <div className = "form raleway">
                     <Form>
                     <Form.Row>
                         <Form.Label>Name</Form.Label>
@@ -131,14 +138,15 @@ class Payments extends Component {
 const mapStateToProps = state => {
   return {
     isLoggedIn: state.firebase.auth.uid,
-    shelters: state.firebase.data['wishlist'],
+    wishlist: state.firebase.data['wishlist'],
   };
 };
 
-export default compose(
+export default compose( withRouter,
   firebaseConnect( props => {
-    const shelterId = props.shelterId;
-    const recipientId = props.recipientId;
+    const recipientId = props.match.params.recipientid;
+    const shelterId = props.match.params.shelterid;
+
     return [
       {path: `/shelters/${shelterId}/${recipientId}/wishlist`, storeAs: 'wishlist'},
     ];

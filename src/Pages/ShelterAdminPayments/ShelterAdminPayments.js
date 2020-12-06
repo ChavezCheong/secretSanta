@@ -47,11 +47,6 @@ class ShelterAdminPayments extends Component {
         <div className="paymentInfo">
           <p className="headingText">Gifts received</p>
           {giftList}
-          <GiftsReceived item="Jacket" person="Jennifer Guo" message="Happy holidays! Enjoy your gift!" money="50"/>
-          <br></br>
-          <GiftsReceived item="Jacket" person="Jennifer Guo" message="Happy holidays! Enjoy your gift!" money="50"/>
-          <br></br>
-          <GiftsReceived item="Jacket" person="Jennifer Guo" message="Happy holidays! Enjoy your gift!" money="50"/>
         </div>
       </>
     )

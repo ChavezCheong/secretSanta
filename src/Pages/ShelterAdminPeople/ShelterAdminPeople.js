@@ -33,7 +33,7 @@ class ShelterAdminPeople extends Component {
     if (people) {
       peopleList =
       Object.keys(people).map((uid, index) => {
-        return <ReceiverCard name={people[uid].name} bio={people[uid].bio} uid={uid}/>
+        return <ReceiverCard name={people[uid].name} bio={people[uid].bio} uid={uid} shelterid={this.props.uid}/>
       });
     }
 

@@ -38,7 +38,7 @@ class Homepage extends Component {
         var shelter = shelters[shelterid];
         Object.keys(shelter).map((personid, personindex) => {
           var person = shelter[personid];
-          peopleList.push( <ReceiverCard name={person.name} bio={person.bio} uid={personid}/>)
+          peopleList.push( <ReceiverCard name={person.name} bio={person.bio} uid={personid} shelterid={shelterid}/>)
         });
       });
     }

@@ -18,14 +18,14 @@ class GiftsReceived extends Component {
 
     var button = (
       <Button className="adCustomButton" onClick={this.handleDeleteGift}>
-        Compeleted Order
+        Complete Order
       </Button>
     )
 
     if (this.state.complete) {
       button = (
         <Button disabled='true' style={{backgroundColor: 'green' }} className="adCustomButton">
-          Compeleted
+          Completed
         </Button>
       )
     }

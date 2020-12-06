@@ -30,13 +30,13 @@ const Routes = (props) => {
         <Route exact path="/shelterAdminPayments">
           <ShelterAdminPayments uid={props.uid} />
         </Route>
-        <Route exact path="/payments">
+        <Route exact path="/payments/:shelterid/:recipientid/:recipientname/:itemname/:itemcost">
           <Payments/>
         </Route>
         <Route exact path="/paymentResult">
           <PaymentResult/>
         </Route>
-        <Route exact path="/ViewProfile">
+        <Route exact path="/ViewProfile/:shelterid/:recipientid">
           <ViewProfile/>
         </Route>
         <Route>
