@@ -51,16 +51,16 @@ const rrfConfig = {
 const rrfProps = {
   firebase,
   config: rrfConfig,
-  dispatch: store.dispatch
-  // createFirestoreInstance // <- needed if using firestore
+  dispatch: store.dispatch,
+  //createFirestoreInstance // <- needed if using firestore
 }
 
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
-    <BrowserRouter>
-    <App />
-    </BrowserRouter>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ReactReduxFirebaseProvider>
   </Provider>, document.getElementById('root')
 );

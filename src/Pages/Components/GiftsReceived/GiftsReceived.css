@@ -1,0 +1,52 @@
+.adminCard {
+  font-family: var(--regFont);
+  font-size: 20px;
+  width: 100%;
+  background-color: white;
+  box-shadow: 5px 5px grey;
+  padding-right: 2em;
+  border: black;
+  border-style: groove;
+  border-color: grey;
+  border-radius: 5px;
+}
+
+.adminCardTitle {
+  padding-top: .5em;
+  padding-left: .8em;
+  font-weight: bold;
+  display: inline;
+}
+
+.adminCardSubTitle {
+  padding-left: .8em;
+  display: inline-block;
+}
+
+.adCustomButton {
+  background-color: var(--babyblue);
+  display: inline;
+  height: 30px;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.adText {
+  display: inline;
+}
+
+.adCustomButton:hover {
+  background-color: var(--dark);
+}
+
+.adCustomButton:focus {
+  background-color: var(--dark);
+}
+
+.adminCardMoney {
+  font-weight: bold;
+  display: inline-block;
+  float: right;
+  padding-right: 15px;
+}
