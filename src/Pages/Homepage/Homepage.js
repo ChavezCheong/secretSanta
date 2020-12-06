@@ -33,7 +33,14 @@ class Homepage extends Component {
     var peopleList = (<p className='raleway'>Everyone's holiday wishes are fulfilled!</p>)
 
     if (shelters) {
-      
+      peopleList = [];
+      Object.keys(shelters).map((shelterid, shelterindex) => {
+        var shelter = shelters[shelterid];
+        Object.keys(shelter).map((personid, personindex) => {
+          var person = shelter[personid];
+          peopleList.push( <ReceiverCard name={person.name} bio={person.bio} uid={personid}/>)
+        });
+      });
     }
 
     return (
@@ -45,10 +52,7 @@ class Homepage extends Component {
         <br/>
         Thank you for your generosity. Click on any person to view their holiday wishlist. </h4>
         <hr/>
-        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
-        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
-        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
-        <ReceiverCard className='card' name='Jenn' bio='Hi I am Jenn'/>
+        {peopleList}
       </div>
     )
   }
