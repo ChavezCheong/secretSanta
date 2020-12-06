@@ -6,29 +6,33 @@ import ShelterLogin from '../Pages/ShelterLogin/ShelterLogin'
 import ShelterAdminPeople from '../Pages/ShelterAdminPeople/ShelterAdminPeople';
 import ShelterAdminPayments from '../Pages/ShelterAdminPayments/ShelterAdminPayments';
 import Homepage from '../Pages/Homepage/Homepage';
+import Payments from '../Pages/Payments/Payments';
 
-const Routes = () => {
+function Routes() {
   return (
     <>
-    <Switch>
-      <Route exact path = '/'>
-        <Homepage/>
-      </Route>
-      <Route exact path="/register">
-        <ShelterRegister/>
-      </Route>
-      <Route exact path="/login">
-        <ShelterLogin/>
-      </Route>
-      <Route exact path="/ShelterAdminPeople">
-        <ShelterAdminPeople/>
-      </Route>
-      <Route exact path="/ShelterAdminPayments">
-        <ShelterAdminPayments/>
-      </Route>
-    </Switch>
+      <Switch>
+        <Route exact path='/'>
+          <Homepage />
+        </Route>
+        <Route exact path="/register">
+          <ShelterRegister />
+        </Route>
+        <Route exact path="/login">
+          <ShelterLogin />
+        </Route>
+        <Route exact path="/ShelterAdminPeople">
+          <ShelterAdminPeople />
+        </Route>
+        <Route exact path="/ShelterAdminPayments">
+          <ShelterAdminPayments />
+        </Route>
+        <Route exact path="/Payments">
+          <Payments />
+        </Route>
+      </Switch>
     </>
-  )
+  );
 }
 
 export default Routes;
