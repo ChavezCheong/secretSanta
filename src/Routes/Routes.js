@@ -28,12 +28,12 @@ const Routes = (props) => {
           <ShelterAdminPeople uid={props.uid} shelterName={props.shelterName}/>
         </Route>
         <Route exact path="/shelterAdminPayments">
-          <ShelterAdminPayments/>
+          <ShelterAdminPayments uid={props.uid} />
         </Route>
-        <Route exact path="/Payments">
+        <Route exact path="/payments">
           <Payments/>
         </Route>
-        <Route exact path="/PaymentResult">
+        <Route exact path="/paymentResult">
           <PaymentResult/>
         </Route>
         <Route exact path="/ViewProfile">
