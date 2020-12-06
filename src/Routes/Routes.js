@@ -22,7 +22,6 @@ const Routes = () => {
       <Route exact path="/login">
         <ShelterLogin/>
       </Route>
-
       <Route exact path="/ShelterAdminPeople">
         <ShelterAdminPeople/>
       </Route>
